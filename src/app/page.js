@@ -1,7 +1,11 @@
-import Header from "./components/Header.jsx"
+import Nav from "./components/Nav.jsx"
+import Apod from "./components/Apod.jsx";
 
 export default function Home() {
   return (
-    <Header/>
+    <>
+      <Nav/>
+      <Apod/>
+    </>
   );
 }

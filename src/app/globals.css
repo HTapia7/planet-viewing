@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+/* *{
   background-image: url("./assets/image2.webp");
   background-size: cover;
-}
+} */
 
