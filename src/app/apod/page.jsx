@@ -16,7 +16,6 @@ const Apod = () => {
       try {
         const response = await axios.get(url);
         setData(response.data);
-        console.log(response);
       } catch (err) {
         setError(err.message || "An error occurred. Please try again.");
       } finally {
@@ -41,7 +40,7 @@ const Apod = () => {
     );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-700 text-gray-200 p-6">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-700 text-gray-200 p-6 flex flex-col items-center">
       {/* Page Header */}
       <div className="text-center mb-8">
         <h1 className="text-5xl font-bold text-white">
@@ -49,14 +48,22 @@ const Apod = () => {
         </h1>
       </div>
 
-      <div className="max-w-3xl mx-auto bg-gray-800 rounded-lg shadow-md overflow-hidden">
-        <img
-          className="w-full object-cover h-72"
-          src={data.url}
-          alt={data.title}
-        />
-        <div className="p-6">
-          <h2 className="text-4xl font-semibold text-white mb-4">{data.title}</h2>
+      {/* Main Content */}
+      <div className="flex flex-col md:flex-row max-w-6xl mx-auto bg-gray-800 rounded-lg shadow-md overflow-hidden">
+        {/* Image Section */}
+        <div className="md:w-1/2">
+          <img
+            className="w-full h-full object-cover"
+            src={data.url}
+            alt={data.title}
+          />
+        </div>
+
+        {/* Info Section */}
+        <div className="p-6 md:w-1/2 flex flex-col">
+          <h2 className="text-4xl font-semibold text-white mb-4">
+            {data.title}
+          </h2>
           <p className="text-sm text-gray-400 mb-4">{data.date}</p>
           <p className="text-lg leading-relaxed">{data.explanation}</p>
         </div>
