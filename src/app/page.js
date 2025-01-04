@@ -1,11 +1,7 @@
-import Nav from "./components/Nav.jsx"
-import Apod from "./components/Apod.jsx";
+import CustomCalendar from "./components/Calendar.tsx";
 
 export default function Home() {
   return (
-    <>
-      <Nav/>
-      <Apod/>
-    </>
+    <CustomCalendar/>
   );
 }
