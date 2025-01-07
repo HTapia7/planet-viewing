@@ -1,15 +1,18 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'], // Adjust paths as needed
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        cosmic: {
+          900: '#4B0082', // Deep purple (Indigo)
+          800: '#5A009B', // Purple blend
+          700: '#7B1FA2', // Lighter purple
+          600: '#9C27B0', // Highlight purple
+          300: '#E1BEE7', // Muted highlight
+        },
+      },
+      backgroundImage: {
+        'space-gradient': 'linear-gradient(to bottom, #000000, #4B0082, #5A009B, #0000FF)',
       },
     },
   },
