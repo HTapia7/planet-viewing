@@ -1,5 +1,7 @@
 "use client";
+
 import React, { useState } from "react";
+import Image from "next/image";
 import Logo from "../assets/logo3.png";
 
 const Navbar = () => {
@@ -9,37 +11,42 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const navItems = [
+    { name: "Home", link: "/" },
+    { name: "APOD", link: "/apod" },
+    { name: "Earth" , link: "earth"}
+  ];
+
   return (
-    <nav className="bg-black">
+    <nav className="bg-black shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo Section */}
-          <div className="flex items-center">
-            <img
-              src={Logo}
-              alt="Logo"
-              className="h-10 w-10 mr-3"
-              onError={(e) => (e.target.style.display = "none")}
-            />
-            <a href="/" className="text-white text-2xl font-bold">
-              MyLogo
-            </a>
+          <div className="flex items-center space-x-4">
+            <div className="hover:scale-105 transition-transform">
+              <Image
+                src={Logo}
+                alt="Logo"
+                width={110}
+                height={110}
+                className="rounded-full"
+              />
+            </div>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            {["Home", "APOD", "Services", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`/${item.toLowerCase()}`}
-                className="text-white text-sm font-medium hover:text-gray-400 transition"
-              >
-                {item}
-              </a>
+          <ul className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.link}
+                  className="text-white text-base font-medium hover:text-gray-400 transition"
+                >
+                  {item.name}
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -73,20 +80,20 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="md:hidden bg-gray-800">
-          <div className="px-4 pt-2 pb-3 space-y-2">
-            {["Home", "APOD", "Services", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`/${item.toLowerCase()}`}
-                className="block text-white text-base font-medium hover:text-gray-400 transition"
-              >
-                {item}
-              </a>
+          <ul className="px-4 pt-2 pb-3 space-y-2">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.link}
+                  className="block text-white text-base font-medium hover:text-gray-400 transition"
+                >
+                  {item.name}
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       )}
     </nav>
