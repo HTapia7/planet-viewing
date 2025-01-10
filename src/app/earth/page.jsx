@@ -22,7 +22,7 @@ const Earth = () => {
 
     const BASE_URL = "https://api.nasa.gov/planetary/earth/assets";
     const API_KEY = process.env.NEXT_PUBLIC_NASA_API_KEY
-    const url = `${BASE_URL}?lon=${longitude}&lat=${latitude}&date=2024-01-03&dim=0.10&api_key=${API_KEY}`;
+    const url = `${BASE_URL}?lon=${longitude}&lat=${latitude}&date=2018-02-01&dim=0.10&api_key=${API_KEY}`;
 
     try {
       setLoading(true);
@@ -38,6 +38,10 @@ const Earth = () => {
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
       <h1 className="text-2xl font-semibold mb-6 text-center">Earth Imagery</h1>
+      <p className="mt-4 text-sm text-gray-600 text-center">
+        NOTE: NASA API might have some limitations on data.
+      </p>
+
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -50,7 +54,7 @@ const Earth = () => {
             onChange={handleLongitudeChange}
             step="0.1"
             required
-            className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
           />
         </div>
 
@@ -64,7 +68,7 @@ const Earth = () => {
             onChange={handleLatitudeChange}
             step="0.1"
             required
-            className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
           />
         </div>
 
