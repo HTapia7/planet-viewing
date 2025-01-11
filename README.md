@@ -1,6 +1,8 @@
 # Foreign Exchange Rate  
-
---- description 
+   A simple application that used the NASA api to gather data from APOD(Astrology picture
+   of the day). The Earth tab allows you to enter longitude and latitude ti get
+   satellite images. Images are limited to the NASA api. All credit goes to NASA
+   for providing this api. 
 
 ## Project Preview  
 
